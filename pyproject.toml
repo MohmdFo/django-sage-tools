@@ -222,7 +222,7 @@ skip = [
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.3.6"
+version = "1.0.0"
 version_files = [
     "pyproject.toml:version",
     "sage_tools/__init__.py:__version__"

@@ -4,7 +4,7 @@ Django Sage Tools - Comprehensive Django utility package.
 Provides mixins, validators, decorators, and tools for enhanced Django development.
 """
 
-__version__ = "0.3.6"
+__version__ = "1.0.0"
 __author__ = "Sepehr Akbarzadeh"
 __email__ = "sepehr@sageteam.org"
 
