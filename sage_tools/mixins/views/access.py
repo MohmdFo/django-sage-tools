@@ -191,8 +191,7 @@ class PermissionRequiredMixin(AccessMixin):
 
     def check_permissions(self, request):
         """Returns whether or not the user has permissions."""
-        perms = self.get_permission_required(request)
-        print(perms)
+        self.get_permission_required(request)
         has_permission = False
 
         if self.object_level_permissions:

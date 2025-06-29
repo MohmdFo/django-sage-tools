@@ -1,9 +1,13 @@
+from typing import Union
+
 from .base import Encryptor
 
 try:
-    from cryptography.fernet import Fernet
-except ImportError:
-    raise ImportError("Install `cryptography` package. Run `pip install cryptography`.")
+    from cryptography.fernet import Fernet, InvalidToken
+except ImportError as e:
+    raise ImportError(
+        "Install `cryptography` package. Run `pip install cryptography`."
+    ) from e
 
 
 class FernetEncryptor(Encryptor):
@@ -34,8 +38,22 @@ class FernetEncryptor(Encryptor):
 
     """
 
-    def __init__(self, secret_key: str):
-        self.fernet = Fernet(secret_key)
+    def __init__(self, secret_key: Union[str, bytes]):
+        """Initialize the Fernet encryptor with a secret key.
+
+        Args:
+            secret_key: A URL-safe base64-encoded 32-byte key for encryption.
+                       Can be string or bytes.
+
+        Raises:
+            ValueError: If the secret key is invalid.
+        """
+        try:
+            if isinstance(secret_key, str):
+                secret_key = secret_key.encode("utf-8")
+            self.fernet = Fernet(secret_key)
+        except Exception as e:
+            raise ValueError(f"Invalid secret key provided: {e}") from e
 
     def encrypt(self, data: str) -> str:
         """Encrypts the given data using Fernet encryption.
@@ -69,10 +87,22 @@ class FernetEncryptor(Encryptor):
         str
             The decrypted data.
 
+        Raises
+        ------
+        ValueError
+            If the data cannot be decrypted (invalid token).
+
         """
         self._validate_data(data)
         data = self._encode_data(data)
-        return self.fernet.decrypt(data).decode("utf-8")
+        try:
+            return self.fernet.decrypt(data).decode("utf-8")
+        except InvalidToken as e:
+            raise ValueError(
+                "Unable to decrypt data. Invalid token or corrupted data."
+            ) from e
+        except Exception as e:
+            raise ValueError(f"Decryption failed: {e}") from e
 
     def _validate_data(self, data):
         """Validates the data to ensure it is either a string or bytes.

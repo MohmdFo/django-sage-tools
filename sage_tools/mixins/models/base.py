@@ -40,11 +40,13 @@ class TimeStampMixin(models.Model):
 
 class UUIDBaseModel(models.Model):
     """
-    Abstract Django Model that contains:
-        uuid
+    Abstract Django Model that provides a UUID primary key field.
+
+    This model replaces the default integer primary key with a UUID,
+    providing better security and scalability for distributed systems.
     """
 
-    uuid = models.UUIDField(
+    id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
         editable=False,
@@ -62,15 +64,17 @@ class UUIDBaseModel(models.Model):
 
 class StockUnitMixin(models.Model):
     """
-    Abstract Django Model that contains:
-        sku
+    Abstract Django Model that provides a Stock Keeping Unit (SKU) field.
+
+    This mixin adds a unique SKU field that can be used for inventory management
+    and product identification.
     """
 
     sku = models.UUIDField(
-        _("Stock of Unit"),
-        max_length=100,
+        _("Stock Keeping Unit"),
         default=uuid.uuid4,
         unique=True,
+        editable=False,
         help_text=_(
             "A unique identifier assigned to each product in inventory. "
             "This Stock Unit SKU is used to uniquely identify and manage"

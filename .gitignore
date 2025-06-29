@@ -160,9 +160,6 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-kernel/
-manage.py
-
 # Ignore all migrations files except __init__.py
 **/migrations/*
 !**/migrations/__init__.py
