@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-sage-tools"
-version = "0.3.7"
+version = "2.0.0"
 description = "Comprehensive Django utility package providing mixins, validators, decorators, and tools for enhanced Django development"
 authors = ["Sepehr Akbarzadeh <sepehr@sageteam.org>"]
 maintainers = ["Sepehr Akbarzadeh <sepehr@sageteam.org>"]
@@ -222,7 +222,7 @@ skip = [
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "1.0.0"
+version = "2.0.0"
 version_files = [
     "pyproject.toml:version",
     "sage_tools/__init__.py:__version__"
