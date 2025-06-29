@@ -1,4 +1,5 @@
 from django.conf import settings
+
 from sage_tools.decorators import AdminBypassDecorator
 
 settings.configure(DJANGO_ADMIN_URL_PREFIX="admin")

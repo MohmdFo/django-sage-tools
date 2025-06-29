@@ -1,0 +1,30 @@
+include README.md
+include LICENSE
+include CHANGELOG.md
+include CONTRIBUTING.md
+include CODE_OF_CONDUCT.md
+include pyproject.toml
+include tox.ini
+
+# Include all Python files
+recursive-include sage_tools *.py
+
+# Include locale files  
+recursive-include sage_tools/locale *.po *.mo
+
+# Include package data
+recursive-include sage_tools *.txt *.md *.json *.toml *.yml *.yaml
+
+# Exclude unnecessary files
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude *~
+global-exclude __pycache__
+global-exclude .git*
+global-exclude .coverage
+global-exclude .pytest_cache
+global-exclude .mypy_cache
+global-exclude .tox
+global-exclude *.egg-info
+global-exclude build
+global-exclude dist 

@@ -1,5 +1,7 @@
 from unittest.mock import patch
+
 from django.utils.text import slugify
+
 from sage_tools.services.slug import SlugService
 
 

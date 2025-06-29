@@ -1,7 +1,7 @@
 import io
 import random
 import secrets
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Any, List, Set, Type, TypeVar
 
 from django.db.models import Model

@@ -1,6 +1,5 @@
 import os
 
-from django.contrib.admin.widgets import AdminFileWidget
 from django.core.validators import FileExtensionValidator
 from django.db import models
 

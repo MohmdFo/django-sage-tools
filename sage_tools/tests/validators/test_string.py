@@ -1,5 +1,6 @@
 import pytest
 from django.core.exceptions import ValidationError
+
 from sage_tools.validators.string import NameValidator
 
 

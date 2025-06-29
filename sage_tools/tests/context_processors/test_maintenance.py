@@ -1,4 +1,5 @@
 from django.test import override_settings
+
 from sage_tools.context_processors.maintenance import get_maintenance_variables
 
 

@@ -1,5 +1,6 @@
-from unittest.mock import patch, MagicMock, Mock
 from datetime import datetime, timezone
+from unittest.mock import MagicMock, Mock, patch
+
 from django.utils.timezone import make_aware
 
 

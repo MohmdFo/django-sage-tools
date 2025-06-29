@@ -1,10 +1,11 @@
-import pytest
-from django.http import HttpRequest
 from unittest.mock import Mock
-from cryptography.fernet import Fernet
 
+import pytest
+from cryptography.fernet import Fernet
+from django.http import HttpRequest
+
+from sage_tools.encryptors import DummyEncryptor, FernetEncryptor
 from sage_tools.repository.generator import BaseDataGenerator
-from sage_tools.encryptors import FernetEncryptor, DummyEncryptor
 from sage_tools.services.slug import SlugService
 
 
